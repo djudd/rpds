@@ -1,3 +1,5 @@
+#[cfg(feature = "rand")]
+mod rand;
 #[cfg(feature = "rayon")]
 mod rayon;
 mod sparse_array_usize;

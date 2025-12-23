@@ -32,6 +32,7 @@ codecov = { repository = "orium/rpds", branch = "main", service = "github" }
 
 [dependencies]
 archery = { version = "1.2.2", features = ["triomphe"] }
+rand = { version = "0.9.2", optional = true }
 rayon = { version = "1.11.0", optional = true }
 serde = { version = "1.0.228", optional = true, default-features = false }
 
@@ -46,6 +47,7 @@ static_assertions = "1.1.0"
 [features]
 default = ["std"]
 std = []
+rand = ["dep:rand", "std"]
 rayon = ["dep:rayon", "std"]
 
 [lints.clippy]
@@ -141,3 +143,8 @@ harness = false
 [[bench]]
 name = "rpds_red_black_tree_map_sync"
 harness = false
+
+[[bench]]
+name = "rpds_hash_trie_map_choose"
+harness = false
+required-features = ["rand"]

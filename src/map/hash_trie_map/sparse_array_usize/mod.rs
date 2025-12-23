@@ -52,7 +52,7 @@ impl<T> SparseArrayUsize<T> {
         self.array.pop()
     }
 
-    #[cfg(feature = "rayon")]
+    #[cfg(any(feature = "rand", feature = "rayon"))]
     pub(crate) fn as_slice(&self) -> &[T] {
         self.array.as_slice()
     }
